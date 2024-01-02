@@ -1,0 +1,53 @@
+﻿@model IEnumerable<CoverType>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notification"></partial>
+<div class="Container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>لیست جنسیت لباس ها</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-controller="CoverType" asp-action="Create" class="btn btn-primary">
+                ایجاد جنسیت جدید <i class="bi bi-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+<br />
+<table class="table table-striped table-bordered table-hover" style="width:100%">
+    <thead>
+        <tr>
+            <th>جنسیت لباس</th>
+            
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var obj in Model)
+        {
+            <tr>
+                <td width="40%">
+                    @obj.Gender
+                </td>
+                
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="CoverType" asp-action="edit" asp-route-id="@obj.Id">
+                            ویرایش  <i class="bi bi-pencil-square"></i>
+                        </a>
+                        &nbsp; &nbsp;
+                        <a asp-controller="CoverType" asp-action="delete" asp-route-id="@obj.Id">
+                            حذف  <i class="bi bi-trash3"></i>
+                        </a>
+                        </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
