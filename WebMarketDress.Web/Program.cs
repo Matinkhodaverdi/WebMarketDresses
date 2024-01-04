@@ -2,6 +2,11 @@ using Microsoft.EntityFrameworkCore;
 using WebMarketDress.DataAccess;
 using WebMarketDress.DataAccess.Service;
 using WebMarketDress.DataAccess.Service.Interface;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using WebMarketDress.Utility;
+
 
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,10 +17,20 @@ builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlSer
     builder.Configuration.GetConnectionString("DefualtConnection")
     ));
 
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
+
+
 
 builder.Services.AddScoped<ICategoryService, CategoryService>();
 builder.Services.AddScoped<ICoverTypeService, CoverTypeService>();
 builder.Services.AddScoped<IProductService, ProductService>();
+builder.Services.AddScoped<IEmailSender, EmailSender>();
+builder.Services.AddScoped<ICompanyService, CompanyService>();
+
+
+builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
 
@@ -31,8 +46,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+app.UseAuthentication();;
 
 app.UseAuthorization();
+app.MapRazorPages();
 
 app.MapControllerRoute(
     name: "default",

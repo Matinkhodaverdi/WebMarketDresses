@@ -1,7 +1,7 @@
-﻿@* @using Microsoft.AspNetCore.Identity
+﻿ @using Microsoft.AspNetCore.Identity
 @inject SignInManager<IdentityUser> SignInManager
 @inject UserManager<IdentityUser> UserManager
- *@
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -35,12 +35,12 @@
                             <li><a class="dropdown-item" asp-area="Admin" asp-controller="Category" asp-action="Index">مدیریت دسته ها</a></li>
                             <li><a class="dropdown-item" asp-area="Admin" asp-controller="CoverType" asp-action="Index">مدیریت کاور تایپ ها</a></li>
                             <li><a class="dropdown-item" asp-area="Admin" asp-controller="Product" asp-action="Index">مدیریت محصولات</a></li>
-                           @*  <li><a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">مدیریت کمپانی</a></li> *@
+                            <li><a class="dropdown-item" asp-area="Admin" asp-controller="Company" asp-action="Index">مدیریت شرکت</a></li>
                            @*  <li><a class="dropdown-item" asp-area="Admin" asp-controller="ShoppingCart" asp-action="Index">مدیریت سبدخرید</a></li> *@
                         </ul>
                     </li>
                 </ul>
-               @*  <ul class="navbar-nav">
+                <ul class="navbar-nav">
                     @if (SignInManager.IsSignedIn(User))
                     {
                         <li class="nav-item">
@@ -61,7 +61,7 @@
                             <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">ورود</a>
                         </li>
                     }
-                </ul> *@
+                </ul> 
                 <a asp-area="Customer" asp-controller="Cart" asp-action="Index" class="btn btn-outline-dark">
                     <i class="bi-cart-fill me-1"></i>
                     سبد خرید

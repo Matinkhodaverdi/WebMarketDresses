@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
     <!-- toastr styles -->
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" />
+    <!-- font iransans -->
+    <link rel="stylesheet" href="~/fonts/css/style.css" />
     <!-- custom styles for admin panel -->
     <link rel="stylesheet" href="~/css/AdminCustomStyles.css" />
     <!-- data table -->
@@ -19,7 +21,7 @@
 </head>
 <body dir="rtl">
 
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-info">
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" asp-area="Customer" asp-controller="Home" asp-action="Index">وب مارکت <i class="bi bi-award-fill"></i></a>
     </nav>
@@ -27,7 +29,7 @@
 
         <!-- SideBar-->
         <div id="layoutSidenav_nav">
-            <nav class="sb-sidenav accordion bg-info" id="sidenavAccordion">
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">محصولات</div>
@@ -40,10 +42,10 @@
                         <a class="nav-link" asp-area="Admin" asp-controller="CoverType" asp-action="Index">
                             مدیریت کاور تایپ ها
                         </a>
-                      @*   <a class="nav-link" asp-area="Admin" asp-controller="Company" asp-action="Index">
-                            مدیریت کمپانی ها
-                        </a> *@
-                       @*  <a class="nav-link" asp-area="Admin" asp-controller="ShoppingCart" asp-action="Index">
+                        <a class="nav-link" asp-area="Admin" asp-controller="Company" asp-action="Index">
+                            مدیریت شرکت ها
+                        </a>
+                        @* <a class="nav-link" asp-area="Admin" asp-controller="ShoppingCart" asp-action="Index">
                             مدیریت سبدهای خرید
                         </a> *@
                     </div>
@@ -63,7 +65,7 @@
             </main>
 
             <!-- Footer-->
-            <footer class="py-4 bg-info mt-auto">
+            <footer class="py-4 bg-dark mt-auto">
                 <div class="container-fluid px-4">
                     <div class="d-flex align-items-center justify-content-between small">
                         <p class="m-0 text-center text-white">
