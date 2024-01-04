@@ -1,16 +1,15 @@
 ﻿@model CoverType
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Create";
 }
 
 <form method="post" asp-action="Edit">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2>ویرایش جنسیت </h2>
+            <h2>ویرایش جنسیت</h2>
+            <hr />
         </div>
-        <hr />
-    </div>
-    <div class="mb-3">
+        @* <div asp-validation-summary="All" class="text-danger"></div>*@
         <div class="mb-3">
             <label asp-for="Gender"></label>
             <input asp-for="Gender" class="form-control" />
@@ -19,14 +18,14 @@
         <button type="submit" class="btn btn-primary" style="width:150px">
             ویرایش جنسیت
         </button>
-        <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width:150px">
+        <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width:170px">
             بازگشت به لیست
         </a>
     </div>
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial"></partial>
+    <partial name="_ValidationScriptsPartial" />
 }
 
 

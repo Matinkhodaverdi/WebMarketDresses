@@ -4,13 +4,14 @@ using WebMarketDress.DataAccess.Service.Interface;
 using WebMarketDress.Models;
 
 
-namespace WebMarketDress.Web
+namespace WebMarketDress.Web.Areas.Admin.Controllers
 {
-    public class CoverTypeyController : Controller
+    [Area("Admin")]
+    public class CoverTypeController : Controller
     {
         private readonly ICoverTypeService _coverTypeService;
 
-        public CoverTypeyController(ICoverTypeService coverTypeService)
+        public CoverTypeController(ICoverTypeService coverTypeService)
         {
             _coverTypeService = coverTypeService;
         }
@@ -23,21 +24,20 @@ namespace WebMarketDress.Web
         //Get
         public IActionResult Create()
         {
+
             return View();
         }
-
 
         //Post
         [HttpPost]
         public IActionResult Create(CoverType obj)
         {
-           
-            if(ModelState.IsValid)
+
+            if (ModelState.IsValid)
             {
                 _coverTypeService.Add(obj);
-                TempData["Success"] = "جنسیت با موفقیت ایجاد شد";
+                TempData["Success"] = "جنسیت لباس با موفقیت ایجاد شد";
                 return RedirectToAction("Index");
-
             }
             return View(obj);
         }
@@ -45,12 +45,12 @@ namespace WebMarketDress.Web
         //Get
         public IActionResult Edit(int? id)
         {
-            if(id == null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            var CoverTypeFromDbFirst= _coverTypeService.GetFirstOrDefualt(u =>u.Id==id);
-            if(CoverTypeFromDbFirst==null)
+            var CoverTypeFromDbFirst = _coverTypeService.GetFirstOrDefualt(i => i.Id == id);
+            if (CoverTypeFromDbFirst == null)
             {
                 return NotFound();
             }
@@ -61,17 +61,15 @@ namespace WebMarketDress.Web
         [HttpPost]
         public IActionResult Edit(CoverType obj)
         {
-            
+
             if (ModelState.IsValid)
             {
                 _coverTypeService.Update(obj);
-                TempData["Success"] = "جنسیت با موفقیت ویرایش شد";
+                TempData["Success"] = "جنسیت لباس با موفقیت ویرایش شد";
                 return RedirectToAction("Index");
-
             }
             return View(obj);
         }
-
 
         //Get
         public IActionResult Delete(int? id)
@@ -80,7 +78,7 @@ namespace WebMarketDress.Web
             {
                 return NotFound();
             }
-            var CoverTypeFromDbFirst = _coverTypeService.GetFirstOrDefualt(u => u.Id == id);
+            var CoverTypeFromDbFirst = _coverTypeService.GetFirstOrDefualt(i => i.Id == id);
             if (CoverTypeFromDbFirst == null)
             {
                 return NotFound();
@@ -92,19 +90,11 @@ namespace WebMarketDress.Web
         [HttpPost]
         public IActionResult DeletePost(int? id)
         {
-
-            var obj = _coverTypeService.GetFirstOrDefualt(u => u.Id == id);
+            var obj = _coverTypeService.GetFirstOrDefualt(i => i.Id == id);
             _coverTypeService.Remove(obj);
-            TempData["Success"] = "جنسیت با موفقیت حذف شد";
+            TempData["Success"] = " جنسیت لباس با موفقیت حذف شد";
             return RedirectToAction("Index");
 
-            
         }
-
-
     }
-
-
-
-
 }

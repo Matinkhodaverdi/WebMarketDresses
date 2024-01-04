@@ -1,32 +1,31 @@
 ﻿@model CoverType
 @{
-    ViewData["Title"] = "Delete";
+    ViewData["Title"] = "Create";
 }
 
-<form method="post" asp-action="DeletePost">
-    <input asp-for="Id" type="hidden" />
+<form method="post">
     <div class="border p-3 mt-4">
         <div class="row pb-2">
-            <h2>حذف جنسیت </h2>
+            <h2>ایجاد جنسیت</h2>
+            <hr />
         </div>
-        <br />
-    </div>
-    <div class="mb-3">
+        @* <div asp-validation-summary="All" class="text-danger"></div>*@
         <div class="mb-3">
             <label asp-for="Gender"></label>
             <input asp-for="Gender" class="form-control" />
             <span asp-validation-for="Gender" class="text-danger"></span>
         </div>
-        
         <button type="submit" class="btn btn-primary" style="width:150px">
-            حذف جنسیت
+            ایجاد جنسیت
         </button>
-        <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width:150px">
+        <a asp-controller="CoverType" asp-action="Index" class="btn btn-secondary" style="width:170px">
             بازگشت به لیست
         </a>
     </div>
 </form>
 
 @section Scripts {
-    <partial name="_ValidationScriptsPartial"></partial>
+    <partial name="_ValidationScriptsPartial" />
 }
+
+

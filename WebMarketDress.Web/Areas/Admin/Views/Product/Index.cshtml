@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_Notification"></partial>
+
+<div class="Container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2>لیست محصولات</h2>
+        </div>
+        <div class="col-6 text-end">
+            <a asp-area="Admin" asp-controller="Product" asp-action="Upsert" class="btn btn-primary">
+                ایجاد محصول   <i class="bi bi-plus-circle"></i>
+            </a>
+        </div>
+    </div>
+    <br />
+    <table id="tblData" class="table table-striped table-bordered" style="width: 100%">
+        <thead>
+            <tr>
+                <th> نام لباس</th>
+                <th> جنس لباس</th>
+                <th> رنگ بندی</th>
+                <th> سایز بندی</th>
+                <th> قیمت </th>
+                <th> دسته بندی</th>
+                <th></th>
+            </tr>
+        </thead>
+
+
+    </table>
+</div>
+
+
+@section Scripts {
+    <script src="~/js/prooduct.js"></script>
+}
+

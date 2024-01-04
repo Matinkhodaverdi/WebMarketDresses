@@ -5,8 +5,9 @@ using WebMarketDress.DataAccess.Service.Interface;
 using WebMarketDress.Models;
 
 
-namespace WebMarketDress.Web
+namespace WebMarketDress.Web.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
         private readonly ICategoryService _categoryService;
@@ -32,12 +33,12 @@ namespace WebMarketDress.Web
         [HttpPost]
         public IActionResult Create(Category obj)
         {
-            if(obj.Name == obj.DisPlayOrder.ToString())
+            if (obj.Name == obj.DisPlayOrder.ToString())
             {
                 ModelState.AddModelError("customerror", "مقدار نام و ترتیب نمایش نباید باهم برابر باشد");
 
             }
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _categoryService.Add(obj);
                 TempData["Success"] = "دسته با موفقیت ایجاد شد";
@@ -50,12 +51,12 @@ namespace WebMarketDress.Web
         //Get
         public IActionResult Edit(int? id)
         {
-            if(id == null || id==0)
+            if (id == null || id == 0)
             {
                 return NotFound();
             }
-            var categoryFromDbFirst= _categoryService.GetFirstOrDefualt(u =>u.Id==id);
-            if(categoryFromDbFirst==null)
+            var categoryFromDbFirst = _categoryService.GetFirstOrDefualt(u => u.Id == id);
+            if (categoryFromDbFirst == null)
             {
                 return NotFound();
             }
@@ -107,7 +108,7 @@ namespace WebMarketDress.Web
             TempData["Success"] = "دسته با موفقیت حذف شد";
             return RedirectToAction("Index");
 
-            
+
         }
 
 

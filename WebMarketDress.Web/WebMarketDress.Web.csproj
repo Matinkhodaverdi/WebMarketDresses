@@ -22,4 +22,8 @@
     <ProjectReference Include="..\WebMarketDress.Utility\WebMarketDress.Utility.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images\products\" />
+  </ItemGroup>
+
 </Project>
