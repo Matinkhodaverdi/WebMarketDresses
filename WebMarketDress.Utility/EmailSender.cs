@@ -15,7 +15,7 @@ namespace WebMarketDress.Utility
         {
             var fromAddress = new MailAddress("academytizhoshan@gmail.com", "WebMarket");
             var toAddress = new MailAddress(email);
-            string fromPassword = "Admin123*!";
+            string fromPassword = "Admin123*";
 
             var smtp = new SmtpClient
             {
