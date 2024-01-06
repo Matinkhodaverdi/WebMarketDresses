@@ -1,5 +1,4 @@
-﻿@using WebMarketDress.Models.ViewModel
-@model ShoppingCartVM
+﻿@model ShoppingCart
 @{
     ViewData["Title"] = "جزئیات محصول";
     Layout = "~/Areas/Customer/Views/Shared/_Layout.cshtml";
@@ -21,15 +20,15 @@
         <aside class="col-8">
             <article class="card-body p-5">
                 <form method="post">
-                    <input hidden asp-for="Product" />
+                    <input hidden asp-for="ProductId" />
                     <div class="text-center">
                         <h2 class="title mb-3"><<@Model.Product.Name>> </h2>
                     </div>
                     <hr />
                     <div class="price-detail-wrap">
-                        @* <div class="col-3">
+                        <div class="col-3">
                         <h6 class="text-muted pb-2"> <strike>@Model.Product.Price.ToString("#,000") تومان</strike></h6>
-                        </div> *@
+                        </div>
                         <div class="col-9 text-left">
                             <span class="price h6 text-danger">
                                 <span class="currency">همین الان با قیمت استثنایی</span>&nbsp;<u class="num">@Model.Product.Price.ToString("#,000")</u>&nbsp;<span class="currency">تومان بخرید <span style='font-size:17px;'>&#128293;</span></span>

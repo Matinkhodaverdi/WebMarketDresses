@@ -8,7 +8,8 @@ namespace WebMarketDress.Models.ViewModel
 {
     public class ShoppingCartVM
     {
-        public Product Product { get; set; }
-        public int Count { get; set; }
+        public double CartTotal { get; set; }
+        public IEnumerable<ShoppingCart> ListCart { get; set; }
+        //public int Count { get; set; }
     }
 }
